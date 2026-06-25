@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   ORANGE_EXPO_SHADER_ID,
+  GRAINIENT_SHADER_ID,
   getShader,
   listShaders,
   shaderCatalog,
@@ -18,6 +19,19 @@ describe("shader catalog", () => {
     expect(shader.fragment).toContain("u_time");
     expect(shader.fragment).toContain("u_resolution");
     expect(shader.fragment).toContain("pixelGrid");
+  });
+
+  it("exposes the grainy gradient swirl shader as a reusable preset", () => {
+    const shader = getShader(GRAINIENT_SHADER_ID);
+
+    expect(shader).toMatchObject({
+      id: "grainient",
+      name: "Grainient",
+      frameworkAgnostic: true,
+    });
+    expect(shader.fragment).toContain("u_time");
+    expect(shader.fragment).toContain("u_resolution");
+    expect(shader.fragment).toContain("noise");
   });
 
   it("returns catalog entries without allowing callers to mutate the registry", () => {

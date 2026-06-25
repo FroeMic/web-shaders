@@ -1,5 +1,6 @@
 export {
   ORANGE_EXPO_SHADER_ID,
+  GRAINIENT_SHADER_ID,
   getShader,
   listShaders,
   shaderCatalog,

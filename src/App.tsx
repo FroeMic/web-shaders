@@ -4,9 +4,9 @@ export function App() {
   return (
     <main className="page-shell">
       <ShaderBackground
-        shader="orange-expo"
+        shader="grainient"
         className="shader-layer"
-        aria-label="Pixelated orange gradient shader"
+        aria-label="Grainy orange gradient shader"
       />
 
       <nav className="topbar" aria-label="Main">
