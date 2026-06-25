@@ -1,0 +1,220 @@
+:root {
+  color: #2e2923;
+  background: #ff6a00;
+  font-family:
+    "SFMono-Regular",
+    "Roboto Mono",
+    "IBM Plex Mono",
+    Consolas,
+    monospace;
+  font-synthesis: none;
+  line-height: 1.5;
+  text-rendering: geometricPrecision;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+.page-shell {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 640px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.shader-layer {
+  z-index: -1;
+}
+
+.topbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: rgba(46, 41, 35, 0.48);
+}
+
+.mark {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border: 0;
+  background: #ff5a00;
+  color: rgba(255, 246, 236, 0.92);
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  white-space: nowrap;
+}
+
+.nav-links a {
+  text-underline-offset: 3px;
+}
+
+.hero {
+  position: absolute;
+  top: 48.5%;
+  left: 50%;
+  width: min(760px, calc(100% - 40px));
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: rgba(45, 40, 35, 0.94);
+}
+
+.hero h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-size: clamp(46px, 5.8vw, 92px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.hero p {
+  margin: 34px 0 0;
+  font-size: clamp(11px, 1vw, 16px);
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  display: grid;
+  width: 86px;
+  height: 86px;
+  place-items: center;
+  padding: 0;
+  transform: translateX(-50%);
+  border: 0;
+  background: transparent;
+  color: rgba(46, 41, 35, 0.42);
+  cursor: pointer;
+}
+
+.scroll-indicator span {
+  position: absolute;
+  inset: 0;
+  display: block;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  animation: rotate-label 14s linear infinite;
+}
+
+.scroll-indicator span::before,
+.scroll-indicator span::after {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 48px;
+  transform: translateX(-50%);
+  content: "Scroll Down";
+}
+
+.scroll-indicator span::after {
+  top: auto;
+  bottom: 8px;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.scroll-indicator svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+@keyframes rotate-label {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    min-height: 560px;
+  }
+
+  .topbar {
+    padding: 16px;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links span {
+    display: none;
+  }
+
+  .hero {
+    top: 47%;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 13vw, 68px);
+  }
+
+  .hero p {
+    margin-top: 28px;
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  .scroll-indicator {
+    bottom: 16px;
+    width: 72px;
+    height: 72px;
+  }
+}
